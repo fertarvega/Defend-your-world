@@ -16,6 +16,11 @@ public class AttackScrip : MonoBehaviour
     void Update()
     {
         gameObject.transform.position = gameObject.transform.position + new Vector3(speedBullet, 0, 0) * Time.deltaTime;
+
+        if(gameObject.transform.position.x > 10)
+        {
+            Destroy(gameObject);
+        }
     }
 
     void OnTriggerEnter2D(Collider2D other)

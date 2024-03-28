@@ -9,5 +9,19 @@ public class EnemyMain : MonoBehaviour
     void Update()
     {
         gameObject.transform.position = gameObject.transform.position + new Vector3(-speedEnemy, 0, 0) * Time.deltaTime;
+
+        if(gameObject.transform.position.x < -10)
+        {
+            Destroy(gameObject);
+        }
+    }
+
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if(other.gameObject.tag == "Player")
+        {
+            other.gameObject.GetComponent<PlayerHealth>().CollisionWithEnemy();
+            Destroy(gameObject);
+        }
     }
 }

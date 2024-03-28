@@ -14,16 +14,15 @@ public class PlayerHealth : MonoBehaviour
         textHealth.text = health.ToString();
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    public void CollisionWithEnemy()
     {
-        if (collision.gameObject.tag == "Enemy")
+        health = health - 10;
+
+        textHealth.text = health.ToString();
+
+        if (health <= 0)
         {
-            health = health - 10;
-
-            textHealth.text = health.ToString();
-
-            Debug.Log(gameObject.name + " : " + gameObject.name + " : " + Time.time);
-
+            Destroy(gameObject);
         }
     }
 }

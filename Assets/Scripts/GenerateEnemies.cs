@@ -7,10 +7,11 @@ public class GenerateEnemies : MonoBehaviour
     public GameObject enemyPrefab;
     public float minY = -2f;
     public float maxY = 2f;
+    public float frequency = 3f;
 
     void Start()
     {
-        InvokeRepeating("SpawnEnemy", 0f, 3f);
+        InvokeRepeating("SpawnEnemy", 0f, frequency);
     }
 
     void SpawnEnemy()
